@@ -1,0 +1,105 @@
+nav.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-radius: 25px 25px 0 0;
+  ul {
+    position: relative;
+    height: 100%;
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    li.nav-item {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &.hover-nav-item {
+        a {
+          span {
+            &.link-icon {
+              transform: scale(1.2) translateY(-30%);
+            }
+            &.link-title {
+              transform: scale(1) translateY(12px);
+            }
+          }
+        }
+      }
+      &.active-nav-item {
+        a {
+          span {
+            &.link-icon {
+              transform: scale(1.5) translateY(-30%);
+            }
+            &.link-title {
+              transform: scale(1) translateY(12px);
+            }
+          }
+        }
+      }
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        
+        span {
+          font-size: 16px;
+          color: violet;
+          transition: 0.33s linear;
+          &.link-icon {
+            display: flex;
+            transform: scale(1);
+            background-color: black;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 24px;
+          }
+          &.link-title {
+            position: absolute;
+            transform: scale(0) translateY(0);
+            transition: 0.33s ease-in-out;
+            transition-delay: 0.05s;
+          }
+          &.link-pop {
+            position: absolute;
+            font-size: 16px;
+            top: -40px;
+            padding: 2px 10px;
+            background-color: black;
+            border-radius: 4px;
+            transform: scale(0);
+            &::after {
+              position: absolute;
+              display: block;
+              transform: translateY(-3px) translateX(-50%) rotate(45deg);
+              content: "";
+              background-color: black;
+              width: 10px;
+              height: 10px;
+              left: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) { 
+  nav.taskbar {
+    display: none;
+  }
+ }
